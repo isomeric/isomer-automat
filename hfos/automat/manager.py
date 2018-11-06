@@ -30,26 +30,26 @@ Module: AutomatWatcher
 
 """
 
-from hfos.component import ConfigurableComponent, authorizedevent, handler
-from hfos.events.client import send
-from hfos.events.objectmanager import objectcreation, objectchange, \
+from isomer.component import ConfigurableComponent, authorized_event, handler
+from isomer.events.client import send
+from isomer.events.objectmanager import objectcreation, objectchange, \
     objectdeletion
 from circuits import Event, Timer
-from hfos.logger import warn, error, critical, hilight, debug
+from isomer.logger import warn, error, critical, hilight, debug
 from copy import deepcopy
 import json
-from hfos.database import objectmodels
+from isomer.database import objectmodels
 
 
 # from datetime import datetime
 # from hfos.events.system import updatesubscriptions, send
 
 
-class store_rule(authorizedevent):
+class store_rule(authorized_event):
     """User requests to store a rule"""
 
 
-class get_events(authorizedevent):
+class get_events(authorized_event):
     """Requests a list of automatable events"""
 
 
@@ -71,7 +71,7 @@ class Manager(ConfigurableComponent):
     The Automat Manager component monitors automat rule changes. It does not
     do much.
     """
-    channel = "hfosweb"
+    channel = 'isomer-web'
 
     configprops = {
     }
@@ -128,7 +128,7 @@ class Manager(ConfigurableComponent):
         self.fireEvent(send(event.client.uuid, packet))
 
     def ready(self, event):
-        from hfos.events.system import AuthorizedEvents
+        from isomer.events.system import AuthorizedEvents
         self.authorized_events = AuthorizedEvents
         self.log('Automat Started')
         self.log('Event sources:', AuthorizedEvents.keys(), lvl=debug)

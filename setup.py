@@ -44,11 +44,11 @@ hfos-navdata package.
       install_requires=[
           'hfos>=1.2.0',
       ],
-      entry_points="""[hfos.components]
+      entry_points="""[isomer.components]
     automat=hfos.automat.manager:Manager
-    [hfos.schemata]
+    [isomer.schemata]
     automatrule=hfos.automat.automatrule:AutomatRule
-    [hfos.provisions]
+    [isomer.provisions]
     automatrule=hfos.automat.provisions.automatrule:provision
     """,
       test_suite="tests.main.main",
