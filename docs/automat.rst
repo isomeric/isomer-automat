@@ -1,4 +1,4 @@
 Automat
 =======
 
-This module adds rule based event processing to HFOS.
+This module adds rule based event processing to Isomer.

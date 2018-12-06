@@ -3,7 +3,7 @@
  * # -*- coding: UTF-8 -*-
  *
  * __license__ = """
- * Hackerfleet Operating System
+ * Isomer Application Framework
  * ============================
  * Copyright (C) 2011- 2018 riot <riot@c-base.org> and others.
  *
@@ -26,10 +26,10 @@
 
 /**
  * @ngdoc function
- * @name hfosFrontendApp.controller:AutomatCtrl
+ * @name isomerFrontendApp.controller:AutomatCtrl
  * @description
  * # AutomatCtrl
- * Controller of the hfosFrontendApp
+ * Controller of the isomerFrontendApp
  */
 class AutomatCtrl {
     constructor($scope, $compile, ObjectProxy, notification, uuid, user, socket) {
@@ -101,7 +101,7 @@ class AutomatCtrl {
         this.requestAutomatData = function () {
             console.log('[AUTOMAT] Logged in - fetching automat data');
             self.socket.send({
-                component: 'hfos.automat.manager',
+                component: 'isomer.automat.manager',
                 action: 'get_events'
             });
             self.op.search('automatrule', '', '*').then(function(msg) {
@@ -111,7 +111,7 @@ class AutomatCtrl {
             })
         };
 
-        this.socket.listen('hfos.automat.manager', this.handleAutomatData);
+        this.socket.listen('isomer.automat.manager', this.handleAutomatData);
 
         this.scope.$on('User.Login', function () {
             self.requestAutomatData();
@@ -127,7 +127,7 @@ class AutomatCtrl {
 
         this.scope.$on('$destroy', function () {
             console.log('[AUTOMAT] Destroying controller');
-            self.socket.unlisten('hfos.automat.manager', self.handleAutomatData);
+            self.socket.unlisten('isomer.automat.manager', self.handleAutomatData);
             self.rulewatch();
         })
     }

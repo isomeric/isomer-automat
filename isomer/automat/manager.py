@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-# HFOS - Hackerfleet Operating System
-# ===================================
+# Isomer Application Framework
+# ============================
 # Copyright (C) 2011-2018 Heiko 'riot' Weinen <riot@c-base.org> and others.
 #
 # This program is free software: you can redistribute it and/or modify
@@ -42,7 +42,7 @@ from isomer.database import objectmodels
 
 
 # from datetime import datetime
-# from hfos.events.system import updatesubscriptions, send
+# from isomer.events.system import updatesubscriptions, send
 
 
 class store_rule(authorized_event):
@@ -121,7 +121,7 @@ class Manager(ConfigurableComponent):
                 del (value['event'])
 
         packet = {
-            'component': 'hfos.automat.manager',
+            'component': 'isomer.automat.manager',
             'action': 'get_events',
             'data': events
         }
@@ -153,7 +153,7 @@ class Manager(ConfigurableComponent):
         event = self.authorized_events[dest][name]['event'](**args)
 
         self.log('Firing automated event:', event.__dict__)
-        self.fireEvent(event, 'hfosweb')
+        self.fireEvent(event, 'isomer-web')
 
     def _compare_int(self, arg, data, func):
         if func == 'equals':

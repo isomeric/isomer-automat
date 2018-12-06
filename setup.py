@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-# HFOS - Hackerfleet Operating System
-# ===================================
+# Isomer Application Framework
+# ============================
 # Copyright (C) 2011-2018 Heiko 'riot' Weinen <riot@c-base.org> and others.
 #
 # This program is free software: you can redistribute it and/or modify
@@ -23,33 +23,32 @@ __license__ = "AGPLv3"
 
 from setuptools import setup, find_packages
 
-setup(name="hfos-automat",
+setup(name="isomer-automat",
       version="0.0.1",
-      description="hfos-automat",
-      author="Hackerfleet Community",
+      description="isomer-automat",
+      author="Isomer Community",
       author_email="riot@c-base.org",
-      url="https://github.com/hackerfleet/hfos-automat",
+      url="https://github.com/isomeric/isomer-automat",
       license="GNU Affero General Public License v3",
       packages=find_packages(),
-      long_description="""HFOS - Automat
-==============
+      long_description="""Isomer - Automat
+================
 
 The automat module offers event based automated actions.
 
-This software package is a plugin module for HFOS and requires the
-hfos-navdata package.
+This software package is a plugin module for Isomer.
 """,
       dependency_links=[
       ],
       install_requires=[
-          'hfos>=1.2.0',
+          'isomer>=1.0.0',
       ],
       entry_points="""[isomer.components]
-    automat=hfos.automat.manager:Manager
+    automat=isomer.automat.manager:Manager
     [isomer.schemata]
-    automatrule=hfos.automat.automatrule:AutomatRule
+    automatrule=isomer.automat.automatrule:AutomatRule
     [isomer.provisions]
-    automatrule=hfos.automat.provisions.automatrule:provision
+    automatrule=isomer.automat.provisions.automatrule:provision
     """,
       test_suite="tests.main.main",
       )
