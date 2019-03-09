@@ -32,12 +32,12 @@ class automatcompare_int {
         console.log('[AT-CI] compare_int loaded, controller scope:', this, $scope);
         this.argument = $scope.$parent.argument;
         this.function = $scope.$parent.function;
-        
+
         console.log('[AT-CI] Scope:', $scope);
 
         let self = this;
     }
-    
+
     update() {
         console.log('[AT-CI] Changed values:', this.argument, this.function, this.scope);
         this.scope.$parent.argument = this.argument;

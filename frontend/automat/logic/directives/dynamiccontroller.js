@@ -57,12 +57,12 @@ let automattoolcontroller = function ($compile, $http, $parse) {
                 $compile(elem)(scope);
                 elem.attr('ng-automat-tool', ctrl);
             }
-            
+
             scope.$watch('ctrl', function (v) {
                 console.log('value changed, new value is: ' + v);
                 update_controller();
             });
-            
+
         }
     };
 };

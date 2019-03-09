@@ -27,7 +27,7 @@ import './automat/automat.scss';
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
 
-import { routing } from './automat.config.js';
+import {routing} from './automat.config.js';
 
 import automatcomponent from './automat/automat';
 import template from './automat/automat.tpl.html';

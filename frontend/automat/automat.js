@@ -104,7 +104,7 @@ class AutomatCtrl {
                 component: 'isomer.automat.manager',
                 action: 'get_events'
             });
-            self.op.search('automatrule', '', '*').then(function(msg) {
+            self.op.search('automatrule', '', '*').then(function (msg) {
                 let rules = msg.data.list;
                 console.log('[AUTOMAT] Got the rules:', rules);
                 for (let rule of rules) self.rules[rule.uuid] = rule
@@ -117,7 +117,7 @@ class AutomatCtrl {
             self.requestAutomatData();
         });
 
-        this.rulewatch = this.scope.$watch('$ctrl.rules', function(oldVal, newVal) {
+        this.rulewatch = this.scope.$watch('$ctrl.rules', function (oldVal, newVal) {
             if (newVal !== oldVal) self.modified = true;
         }, true);
 
@@ -167,7 +167,9 @@ class AutomatCtrl {
             let rule = this.rules[uuid];
 
             delete rule['$$hashKey'];
-            for (let logic of rule.input.logic) { delete logic['$$hashKey'] }
+            for (let logic of rule.input.logic) {
+                delete logic['$$hashKey']
+            }
 
             console.log('[AUTOMAT] Storing rule ', rule);
             this.op.putObject('automatrule', rule);
