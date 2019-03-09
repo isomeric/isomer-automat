@@ -3,7 +3,7 @@
 
 # Isomer Application Framework
 # ============================
-# Copyright (C) 2011-2018 Heiko 'riot' Weinen <riot@c-base.org> and others.
+# Copyright (C) 2011-2019 Heiko 'riot' Weinen <riot@c-base.org> and others.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -48,23 +48,37 @@ AutomatSchema = {
     'id': '#automat',
     'name': 'automat',
     'properties': {
-        'uuid': {'type': 'string', 'minLength': 36,
-                 'title': 'Unique Automat Event ID', 'description': 'HIDDEN'},
-        'name': {'type': 'string', 'minLength': 1, 'title': 'Name',
-                 'description': 'Name of automat entry'},
-        'severity': {'type': 'string', 'enum': ['Info', 'Warning', 'Critical'],
-                     'default': 'Info'},
-        'owner': {'type': 'string', 'minLength': 36,
-                  'title': "Owner's Unique ID", 'description': 'HIDDEN'},
-        'time': {'type': 'string', 'format': 'datetimepicker',
-                 'title': 'Event time',
-                 'description': 'Date and time of event'},
-        'category': {'type': 'string', 'title': 'Category',
-                     'enum': ['Incident', 'Navigation', 'Technical', 'Bridge'],
-                     'description': 'Category of log event'},
+        'uuid': {
+            'type': 'string', 'minLength': 36,
+            'title': 'Unique Automat Event ID', 'description': 'HIDDEN'
+        },
+        'name': {
+            'type': 'string', 'minLength': 1, 'title': 'Name',
+            'description': 'Name of automat entry'
+        },
+        'severity': {
+            'type': 'string', 'enum': ['Info', 'Warning', 'Critical'],
+            'default': 'Info'
+        },
+        'owner': {
+            'type': 'string', 'minLength': 36,
+            'title': "Owner's Unique ID", 'description': 'HIDDEN'
+        },
+        'time': {
+            'type': 'string', 'format': 'datetimepicker',
+            'title': 'Event time',
+            'description': 'Date and time of event'
+        },
+        'category': {
+            'type': 'string', 'title': 'Category',
+            'enum': ['Incident', 'Navigation', 'Technical', 'Bridge'],
+            'description': 'Category of log event'
+        },
         'subcategory'
-        'notes': {'type': 'string', 'format': 'html', 'title': 'User notes',
-                  'description': 'Entry notes'},
+        'notes': {
+            'type': 'string', 'format': 'html', 'title': 'User notes',
+            'description': 'Entry notes'
+        },
 
     }
 }
